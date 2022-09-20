@@ -12,6 +12,7 @@ namespace TestTask.Classes
     public class CustomButton : System.Windows.Controls.Button
     {
         public int xCoords, yCoords;
+        public bool isShootInit = false; 
 
         public CustomButton(int xCoords, int yCoords)
         {

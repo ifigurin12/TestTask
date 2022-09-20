@@ -54,7 +54,7 @@ namespace TestTask
             Grid.Children.Clear();
             Random rand = new Random(DateTime.Now.Second * DateTime.Now.Millisecond);
 
-            int clickValue = rand.Next(3, 8);
+            int clickValue = rand.Next(2, size);
 
             for (int i = 0; i < size; i++)
             {
@@ -68,13 +68,16 @@ namespace TestTask
                 }
             }
             int x, y, countArr;
-            int[] xCoordsArr, yCoordsArr; 
+            int[,] clickCoordsArray; 
             while (clickValue > 0)
             {
                 x = rand.Next(0, size);
-                y = rand.Next(0, size); 
-                result[x, y].changesValuesButton(result);
-                clickValue--;
+                y = rand.Next(0, size);
+                if (result[x, y].isShootInit == false)
+                {
+                    result[x, y].changesValuesButton(result);
+                    clickValue--;
+                }
             }
             
 
